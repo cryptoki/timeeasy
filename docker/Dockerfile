@@ -1,7 +1,6 @@
 FROM openjdk:8-alpine
 
 ENV APP_NAME=timeeasy-0.0.1-SNAPSHOT.jar
-ENV HOME=/app
 ENV APP_HOME=/app
 ENV APP_USER=app
 ENV APP_LOGS=$APP_HOME/logs
@@ -12,7 +11,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN adduser -D -u 7777 -h $APP_HOME -s /bin/nologin $APP_USER
 RUN apk --update add sudo
 
-ADD /target/$APP_NAME $APP_HOME
+ADD /$APP_NAME $APP_HOME
 
 WORKDIR $APP_HOME
 
