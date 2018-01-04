@@ -1,7 +1,15 @@
 package epicdays.timeeasy.persistence.domain;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
 import javax.persistence.*;
 
+@Data
+@NoArgsConstructor
+@RequiredArgsConstructor
 @Entity
 @Table(name = "activity")
 public class Activity {
@@ -12,24 +20,7 @@ public class Activity {
     private Long id;
 
     @Column(name = "name")
+    @NonNull
     private String name;
 
-
-    public Activity(String name) {
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
 }
