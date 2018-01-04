@@ -1,5 +1,6 @@
 package epicdays.timeeasy.controller;
 
+import epicdays.timeeasy.persistence.repository.ActivityRepository;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,8 @@ import java.util.Collection;
 @RequestMapping("/activities")
 @RestController
 public class ActivityController {
+
+    private ActivityRepository repository;
 
     @ApiOperation(value = "get all activities", code = 201)
     @ApiResponses(value = {@ApiResponse(code = 200, message = "OK")})
