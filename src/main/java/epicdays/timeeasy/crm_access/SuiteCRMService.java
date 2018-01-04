@@ -9,11 +9,10 @@ public class SuiteCRMService {
 
     public void bookTimeRecord(TimeRecord timeRecord) {
         loginToSuiteCRM(timeRecord);
-        book(timeRecord);
+        //book(timeRecord);
     }
 
     private void loginToSuiteCRM(TimeRecord timeRecord) {
-        // @Todo: Use Selenium + HTTPUnitDriver with PageObjects to login in SuiteCRM
         LoginPage loginPage = new LoginPage(driver);
         loginPage.loginAs(timeRecord.getUser(), timeRecord.getPassword());
     }

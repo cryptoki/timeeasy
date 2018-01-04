@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.concurrent.TimeUnit;
+
 public class LoginPage {
 
     private static final String PAGE = "https://aufwandserfassung.tools.epost-dev.de/zeiterfassung/index.php?action=Login";
@@ -15,14 +17,14 @@ public class LoginPage {
     private final By usernameLocator = By.id("user_name");
     private final By passwordLocator = By.id("user_password");
     private final By loginButtonLocator = By.id("bigbutton");
-    private final String pageTitle = "Login";
+    private final String pageTitle = "SuiteCRM";
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-
-        if (!pageTitle.equals(driver.getTitle())) {
+        driver.get(PAGE);
+/*        if (!pageTitle.equals(driver.getTitle())) {
             throw new IllegalStateException("This is not the login page");
-        }
+        }*/
     }
 
     public HomePage loginAs(String user, String password) {

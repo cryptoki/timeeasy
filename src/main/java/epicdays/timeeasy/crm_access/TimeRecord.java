@@ -1,20 +1,15 @@
 package epicdays.timeeasy.crm_access;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Value;
 
 import java.util.Date;
 
-@Data
+@Value
 public class TimeRecord {
-    private Date date;
-    private Integer hours;
-    private String user;
-    private String password;
-
-    public TimeRecord (String user, String password, Date date, Integer hours) {
-        this.user = user;
-        this.password = password;
-        this.date = date;
-        this.hours = hours;
-    }
+    private final String user;
+    private final String password;
+    private final Date date;
+    private final Integer hours;
 }
