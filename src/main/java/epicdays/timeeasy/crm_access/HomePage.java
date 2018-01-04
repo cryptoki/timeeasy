@@ -9,6 +9,6 @@ public class HomePage {
 
     public HomePage(WebDriver driver) {
         System.out.println("HOMEPAGE TITLE " + driver.getTitle());
-        driver.findElement(navigationLocator);
+        //driver.findElement(navigationLocator);
     }
 }
