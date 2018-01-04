@@ -17,14 +17,18 @@ public class LoginPage {
     private final By usernameLocator = By.id("user_name");
     private final By passwordLocator = By.id("user_password");
     private final By loginButtonLocator = By.id("bigbutton");
-    private final String pageTitle = "SuiteCRM";
+    private final By loginFormLocator = By.id("loginform");
+
+    private final String pageTitle = "suitecrm";
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(PAGE);
-/*        if (!pageTitle.equals(driver.getTitle())) {
-            throw new IllegalStateException("This is not the login page");
-        }*/
+        WebElement titleElement = driver.findElement(loginFormLocator);
+        if (titleElement.getText() == null) {
+            throw new IllegalStateException("This is not the login page.");
+        }
     }
 
     public HomePage loginAs(String user, String password) {
